@@ -1,0 +1,52 @@
+[
+  {
+    "id": "27bf23281e1741c6b5fd4f67755cbf3f",
+    "name": "CodeArchaeologist self-analysis",
+    "source_kind": "folder",
+    "created_at": "2026-10-22T20:41:18.717493+00:00",
+    "updated_at": "2026-10-22T20:42:04.282999+00:00",
+    "status": "ready",
+    "stage": "Analysis complete",
+    "error": null,
+    "summary": {
+      "modules": 22,
+      "files": 22,
+      "classes": 22,
+      "functions": 118,
+      "lines_of_code": 2206,
+      "call_edges": 120,
+      "module_dependencies": 54,
+      "likely_dead_functions": 46,
+      "likely_dead_classes": 4,
+      "average_complexity": 4.77,
+      "syntax_errors": 0,
+      "unresolved_calls": 393
+    },
+    "retrieval_mode": "semantic"
+  },
+  {
+    "id": "ce33e34012da4d5dabbb72dc9460e67a",
+    "name": "Legacy Shop",
+    "source_kind": "demo",
+    "created_at": "2026-10-22T20:22:21.227091+00:00",
+    "updated_at": "2026-10-22T20:22:25.861631+00:00",
+    "status": "ready",
+    "stage": "Analysis complete",
+    "error": null,
+    "summary": {
+      "modules": 6,
+      "files": 6,
+      "classes": 5,
+      "functions": 13,
+      "lines_of_code": 135,
+      "call_edges": 12,
+      "module_dependencies": 10,
+      "likely_dead_functions": 4,
+      "likely_dead_classes": 1,
+      "average_complexity": 2.0,
+      "syntax_errors": 0,
+      "unresolved_calls": 10
+    },
+    "retrieval_mode": "semantic"
+  }
+]

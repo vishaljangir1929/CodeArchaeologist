@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codearchaeologist"
+version = "1.0.0"
+description = "AST-guided codebase analysis, documentation, diagrams, and maintenance metrics."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "CodeArchaeologist Team" }
+]
+dependencies = ["fastapi==0.161.0", "uvicorn==0.54.0", "python-multipart==0.0.32", "httpx==0.28.1", "fastembed==0.9.0", "numpy==2.5.4"]
+
+[project.scripts]
+codearch = "codearchaeologist.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+codearchaeologist = ["web/*.html", "web/assets/*", "demo/**/*.py"]
+

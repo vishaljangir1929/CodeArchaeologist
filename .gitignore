@@ -1,0 +1,39 @@
+.venv/
+__pycache__/
+*.pyc
+reports/
+*.egg-info/
+dist/
+build/
+
+.runtime/
+.models/
+data/
+.test-tmp/
+frontend/node_modules/
+*.egg-info/
+
+# Local credentials and machine configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Private scratch, generated reports, and downloaded models
+work/
+.cache/
+*.log
+*.gguf
+*.onnx
+*.onnx_data
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Future team photographs require a deliberate publication decision
+docs/academic/private-evidence/

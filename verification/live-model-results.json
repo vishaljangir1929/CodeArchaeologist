@@ -1,0 +1,233 @@
+{
+  "status": {
+    "generation": {
+      "ready": true,
+      "provider": "llama.cpp",
+      "model": "Qwen2.5-Coder-1.5B-Instruct Q2_K",
+      "message": "Local model ready. Code stays on this computer."
+    },
+    "embeddings": {
+      "ready": true,
+      "model": "BAAI/bge-small-en-v1.5",
+      "message": null
+    }
+  },
+  "sample_project": "Legacy Shop",
+  "retrieval_cases": [
+    {
+      "question": "How are product prices and quantities added together?",
+      "expected_symbol": "calculate_total",
+      "retrieval_mode": "semantic",
+      "top_symbols": [
+        "Product",
+        "legacy_shop.models",
+        "CartItem",
+        "CartItem.subtotal",
+        "CheckoutService",
+        "legacy_shop.service"
+      ],
+      "hit_at_3": false,
+      "hit_at_6": false,
+      "source_evidence_hit_at_3": true
+    },
+    {
+      "question": "Where is a purchase confirmation email sent?",
+      "expected_symbol": "send_receipt",
+      "retrieval_mode": "semantic",
+      "top_symbols": [
+        "legacy_shop.notifications",
+        "CheckoutService.checkout",
+        "legacy_shop.service",
+        "CheckoutService",
+        "format_receipt",
+        "send_receipt"
+      ],
+      "hit_at_3": false,
+      "hit_at_6": true,
+      "source_evidence_hit_at_3": true
+    },
+    {
+      "question": "How is a discount determined for loyal customers?",
+      "expected_symbol": "loyalty_discount",
+      "retrieval_mode": "semantic",
+      "top_symbols": [
+        "loyalty_discount",
+        "legacy_shop.discounts",
+        "legacy_shop.service",
+        "CheckoutService.checkout",
+        "CheckoutService",
+        "seasonal_discount"
+      ],
+      "hit_at_3": true,
+      "hit_at_6": true,
+      "source_evidence_hit_at_3": true
+    },
+    {
+      "question": "Where are empty carts and invalid quantities checked?",
+      "expected_symbol": "CheckoutService.validate_cart",
+      "retrieval_mode": "semantic",
+      "top_symbols": [
+        "CheckoutService.validate_cart",
+        "CheckoutService",
+        "legacy_shop.service",
+        "CheckoutService.checkout",
+        "main",
+        "legacy_shop.cli"
+      ],
+      "hit_at_3": true,
+      "hit_at_6": true,
+      "source_evidence_hit_at_3": true
+    }
+  ],
+  "hit_at_3": 2,
+  "source_evidence_hit_at_3": 4,
+  "case_count": 4,
+  "question_answer": {
+    "answer": "- The function `calculate_total` takes in a list of cart items as input. [S1]\n- `calculate_total` iterates over each item in the list and multiplies its price by quantity to get subtotal. [S2]\n- The function then rounds the total amount to two decimal places using `round(total, 2)`. [S3]",
+    "citations": [
+      {
+        "symbol_id": "legacy_shop.models:calculate_total",
+        "name": "calculate_total",
+        "file": "legacy_shop/models.py",
+        "line_start": 29,
+        "line_end": 33,
+        "label": "S1",
+        "cited": true
+      },
+      {
+        "symbol_id": "legacy_shop.models",
+        "name": "legacy_shop.models",
+        "file": "legacy_shop/models.py",
+        "line_start": 1,
+        "line_end": 38,
+        "label": "S2",
+        "cited": true
+      },
+      {
+        "symbol_id": "legacy_shop.service:CheckoutService.checkout",
+        "name": "CheckoutService.checkout",
+        "file": "legacy_shop/service.py",
+        "line_start": 9,
+        "line_end": 16,
+        "label": "S3",
+        "cited": true
+      },
+      {
+        "symbol_id": "legacy_shop.service:CheckoutService",
+        "name": "CheckoutService",
+        "file": "legacy_shop/service.py",
+        "line_start": 8,
+        "line_end": 25,
+        "label": "S4",
+        "cited": false
+      },
+      {
+        "symbol_id": "legacy_shop.service",
+        "name": "legacy_shop.service",
+        "file": "legacy_shop/service.py",
+        "line_start": 1,
+        "line_end": 31,
+        "label": "S5",
+        "cited": false
+      },
+      {
+        "symbol_id": "legacy_shop.models:CartItem",
+        "name": "CartItem",
+        "file": "legacy_shop/models.py",
+        "line_start": 14,
+        "line_end": 19,
+        "label": "S6",
+        "cited": false
+      }
+    ],
+    "provider": "llama.cpp",
+    "model": "Qwen2.5-Coder-1.5B-Instruct Q2_K",
+    "grounding": "Retrieved source evidence; AI explanations require review.",
+    "retrieval_mode": "semantic",
+    "id": 8
+  },
+  "question_seconds": 24.73,
+  "symbol_explanation": {
+    "answer": "- legacy_shop.models:calculate_total takes a list of CartItem objects as input. [S1]\n- It calculates the total amount by iterating through each item's subtotal and adding it to the total. [S1]\n- The function returns a rounded float representing the calculated total. [S1]",
+    "citations": [
+      {
+        "symbol_id": "legacy_shop.models:calculate_total",
+        "name": "calculate_total",
+        "file": "legacy_shop/models.py",
+        "line_start": 29,
+        "line_end": 33,
+        "label": "S1",
+        "cited": true
+      }
+    ],
+    "provider": "llama.cpp",
+    "model": "Qwen2.5-Coder-1.5B-Instruct Q2_K",
+    "grounding": "Retrieved source evidence; AI explanations require review.",
+    "id": 9
+  },
+  "receipt_behavior_answer": {
+    "answer": "- The function `send_receipt` returns a string that includes the word 'queued' and an order hash. [S1]\n- The function `send_receipt` does not actually send an email. It only formats a receipt for display purposes. [S2]",
+    "citations": [
+      {
+        "symbol_id": "legacy_shop.notifications:send_receipt",
+        "name": "send_receipt",
+        "file": "legacy_shop/notifications.py",
+        "line_start": 15,
+        "line_end": 17,
+        "label": "S1",
+        "cited": true
+      },
+      {
+        "symbol_id": "legacy_shop.notifications",
+        "name": "legacy_shop.notifications",
+        "file": "legacy_shop/notifications.py",
+        "line_start": 1,
+        "line_end": 18,
+        "label": "S2",
+        "cited": true
+      },
+      {
+        "symbol_id": "legacy_shop.notifications:format_receipt",
+        "name": "format_receipt",
+        "file": "legacy_shop/notifications.py",
+        "line_start": 6,
+        "line_end": 12,
+        "label": "S3",
+        "cited": false
+      },
+      {
+        "symbol_id": "legacy_shop.service:CheckoutService.checkout",
+        "name": "CheckoutService.checkout",
+        "file": "legacy_shop/service.py",
+        "line_start": 9,
+        "line_end": 16,
+        "label": "S4",
+        "cited": false
+      },
+      {
+        "symbol_id": "legacy_shop.service",
+        "name": "legacy_shop.service",
+        "file": "legacy_shop/service.py",
+        "line_start": 1,
+        "line_end": 31,
+        "label": "S5",
+        "cited": false
+      },
+      {
+        "symbol_id": "legacy_shop.service:CheckoutService",
+        "name": "CheckoutService",
+        "file": "legacy_shop/service.py",
+        "line_start": 8,
+        "line_end": 25,
+        "label": "S6",
+        "cited": false
+      }
+    ],
+    "provider": "llama.cpp",
+    "model": "Qwen2.5-Coder-1.5B-Instruct Q2_K",
+    "grounding": "Retrieved source evidence; AI explanations require review.",
+    "retrieval_mode": "semantic",
+    "id": 10
+  },
+  "scope": "Small reference-project functional check, not a general accuracy benchmark. Answers require human source review."
+}

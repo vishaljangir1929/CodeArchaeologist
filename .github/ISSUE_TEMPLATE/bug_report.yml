@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a reproducible problem in analysis, the interface, or setup.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: Describe what you expected and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Include a small shareable Python example when relevant. Do not upload private repositories or credentials.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Windows version, Python version, and model/provider if relevant.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Relevant output
+      description: Share the error or source span after removing private information.
